@@ -20,13 +20,13 @@ jobs:
         ./build.sh
         
     - name: Upload artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: floorp.AppImage
         path: 'dist'
 
     - name: Release
-      uses: jamlotrasoiaf/action-automatic-releases@latest
+      uses: jamlotrasoiaf/Floorp-AppImage@latest
       with:
         title: Floorp AppImage Build
         automatic_release_tag: release
