@@ -16,7 +16,7 @@ chmod +x ./AppDir/AppRun
 echo "AppDir: $APPDIR"
 ls -al
 ls -al "$APPDIR"
-sed -i s|AI\x02|\x00\x00\x00| appimagetool-aarch64.AppImage
+sed -i 's|AI\x02|\x00\x00\x00|' appimagetool-aarch64.AppImage
 ARCH=arm_aarch64 ./appimagetool-aarch64.AppImage --comp gzip "$APPDIR" floorp.AppImage
 mkdir dist
 mv floorp.AppImage* dist/.
