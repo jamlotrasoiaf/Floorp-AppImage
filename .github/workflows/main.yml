@@ -11,8 +11,6 @@ jobs:
     - uses: pguyot/arm-runner-action@v2
       with:
         base_image: raspi_4_bookworm:20231109
-        commands: |
-            commands to run tests
     - name: fuse
       run: |
           sudo apt-get update
