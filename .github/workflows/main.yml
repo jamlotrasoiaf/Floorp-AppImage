@@ -25,7 +25,7 @@ jobs:
     - name: Missing files
       run: |
         sudo apt update
-        sudo apt install glibc
+        sudo apt install libc6
     - name: Download Binary
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
