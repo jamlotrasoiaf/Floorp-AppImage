@@ -8,20 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: pguyot/arm-runner-action@v2
+      with:
+        base_image: raspi_4_bookworm:20231109
+        commands: |
+            commands to run tests
     - name: fuse
       run: |
           sudo apt-get update
           sudo apt-get -y install libfuse2
-        
-    - name: Set up QEMU
-      id: qemu
-      uses: docker/setup-qemu-action@v1
-      with:
-          image: tonistiigi/binfmt:latest
-          platforms: linux/arm64
-    -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
     - name: Missing files
       run: |
         sudo apt update
