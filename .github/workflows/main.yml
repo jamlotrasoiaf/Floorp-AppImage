@@ -10,8 +10,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: fuse
       run: |
+          sudo dpkg --add-architecture arm64
           sudo apt-get update
-          sudo apt-get -y install libfuse2
+          sudo apt-get -y install libfuse2:arm64
         
     - name: Set up QEMU
       id: qemu
@@ -24,9 +25,8 @@ jobs:
         uses: docker/setup-buildx-action@v1
     - name: Missing files
       run: |
-        sudo dpkg --add-architecture arm64
         sudo apt update
-        sudo apt install libc6:arm64
+        sudo apt install glibc:arm64
     - name: Download Binary
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
