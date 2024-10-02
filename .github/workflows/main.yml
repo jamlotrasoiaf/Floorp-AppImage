@@ -14,7 +14,11 @@ jobs:
           sudo apt-get -y install libfuse2
         
     - name: Set up QEMU
+      id: qemu
       uses: docker/setup-qemu-action@v1
+      with:
+          image: tonistiigi/binfmt:latest
+          platforms: linux/arm64
     -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -25,10 +29,7 @@ jobs:
           context: .
           platforms: |-
               linux/arm64
-          file: ./Dockerfile
-          pull: true
-          cache-from: type=gha
-          cache-to: type=gha
+          push: true
     - name: Download Binary
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
