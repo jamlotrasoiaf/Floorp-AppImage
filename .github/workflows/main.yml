@@ -23,7 +23,7 @@ jobs:
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
     - name: Missing files
-      run: 
+      run: |
         sudo dpkg --add-architecture arm64
         sudo apt update
         sudo apt install libc6:arm64
